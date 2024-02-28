@@ -7,8 +7,14 @@ import Campus from "./components/Campus/Campus.jsx";
 import Testimonials from "./components/Testimonials/Testimonials.jsx";
 import Contact from "./components/Contact/Contact.jsx";
 import Footer from "./components/Footer/Footer.jsx";
+import VideoPlayer from "./components/VideoPlayer/VideoPlayer.jsx";
+import {useState} from "react";
 
 const App = () => {
+
+    const [playerState, setPlayerState] = useState(false);
+
+
     return (
         <div>
             <Navbar/>
@@ -20,7 +26,7 @@ const App = () => {
                     title='What we Offer'
                 />
                 <Programs/>
-                <About/>
+                <About setPlayerState={setPlayerState}/>
                 <Title
                     subTitle='Galley'
                     title='Campus Photos'
@@ -42,6 +48,7 @@ const App = () => {
                 <Contact/>
                 <Footer />
             </div>
+            <VideoPlayer playerState={playerState} setPlayerState={setPlayerState} />
         </div>
     )
 }
